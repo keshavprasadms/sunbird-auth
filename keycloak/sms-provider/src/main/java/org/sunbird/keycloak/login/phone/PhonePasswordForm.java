@@ -109,4 +109,9 @@ public class PhonePasswordForm extends AbstractPhoneFormAuthenticator implements
     public void close() {
 
     }
+
+    @Override
+    protected boolean invalidUser(AuthenticationFlowContext context, UserModel user) {
+        return false;
+    }
 }

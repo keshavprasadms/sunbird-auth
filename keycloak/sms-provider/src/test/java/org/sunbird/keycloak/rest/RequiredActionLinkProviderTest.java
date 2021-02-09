@@ -332,8 +332,7 @@ public class RequiredActionLinkProviderTest {
     PowerMockito.when(model.getClientByClientId(clientId)).thenReturn(client);
     PowerMockito.when(client.isEnabled()).thenReturn(true);
     PowerMockito.mockStatic(RedirectUtils.class);
-    PowerMockito.when(RedirectUtils.verifyRedirectUri(session.getContext().getUri(), redirectUri,
-        session.getContext().getRealm(), client)).thenReturn(null);
+    PowerMockito.when(RedirectUtils.verifyRedirectUri(session, redirectUri, client, true)).thenReturn(null);
     RequiredActionLinkProvider provider = new RequiredActionLinkProvider(session);
     WebApplicationException expectedException = new WebApplicationException(
         ErrorResponse.error(MessageFormat.format(Constants.ERROR_INVALID_PARAMETER_VALUE,
@@ -374,8 +373,7 @@ public class RequiredActionLinkProviderTest {
     PowerMockito.when(model.getClientByClientId(clientId)).thenReturn(client);
     PowerMockito.when(client.isEnabled()).thenReturn(true);
     PowerMockito.mockStatic(RedirectUtils.class);
-    PowerMockito.when(RedirectUtils.verifyRedirectUri(session.getContext().getUri(), redirectUri,
-        session.getContext().getRealm(), client)).thenReturn("/login");
+    PowerMockito.when(RedirectUtils.verifyRedirectUri(session, redirectUri, client, true)).thenReturn("/login");
     RequiredActionLinkProvider provider = new RequiredActionLinkProvider(session);
     WebApplicationException expectedException = new WebApplicationException(
         ErrorResponse.error(MessageFormat.format(Constants.ERROR_MANDATORY_PARAM_MISSING,
@@ -417,8 +415,7 @@ public class RequiredActionLinkProviderTest {
     PowerMockito.when(model.getClientByClientId(clientId)).thenReturn(client);
     PowerMockito.when(client.isEnabled()).thenReturn(true);
     PowerMockito.mockStatic(RedirectUtils.class);
-    PowerMockito.when(RedirectUtils.verifyRedirectUri(session.getContext().getUri(), redirectUri,
-        session.getContext().getRealm(), client)).thenReturn("/login");
+    PowerMockito.when(RedirectUtils.verifyRedirectUri(session, redirectUri, client, true)).thenReturn("/login");
     RequiredActionLinkProvider provider = new RequiredActionLinkProvider(session);
     WebApplicationException expectedException = new WebApplicationException(
         ErrorResponse.error(MessageFormat.format(Constants.ERROR_INVALID_PARAMETER_VALUE,

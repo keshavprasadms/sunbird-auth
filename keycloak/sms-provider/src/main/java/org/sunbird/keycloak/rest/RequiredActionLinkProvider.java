@@ -1,18 +1,5 @@
 package org.sunbird.keycloak.rest;
 
-import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Produces;
-import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
-import javax.ws.rs.core.UriBuilder;
 import org.apache.commons.lang3.StringUtils;
 import org.jboss.logging.Logger;
 import org.keycloak.authentication.actiontoken.execactions.ExecuteActionsActionToken;
@@ -29,6 +16,20 @@ import org.keycloak.services.managers.AuthenticationManager.AuthResult;
 import org.keycloak.services.resource.RealmResourceProvider;
 import org.keycloak.services.resources.LoginActionsService;
 import org.sunbird.keycloak.utils.Constants;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.UriBuilder;
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class RequiredActionLinkProvider implements RealmResourceProvider {
 
@@ -178,8 +179,7 @@ public class RequiredActionLinkProvider implements RealmResourceProvider {
   private void validateRedirectUri(String redirectUri, ClientModel client) {
     logger.debug("RestResourceProvider: validateRedirectUri called");
     if (StringUtils.isNotBlank(redirectUri)) {
-      String redirect = RedirectUtils.verifyRedirectUri(session.getContext().getUri(), redirectUri,
-          session.getContext().getRealm(), client);
+      String redirect = RedirectUtils.verifyRedirectUri(session, redirectUri, client, true);
       if (redirect == null) {
         throw new WebApplicationException(
             ErrorResponse.error(MessageFormat.format(Constants.ERROR_INVALID_PARAMETER_VALUE,

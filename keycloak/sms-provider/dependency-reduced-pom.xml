@@ -63,6 +63,12 @@
       <artifactId>keycloak-server-spi-private</artifactId>
       <version>11.0.3</version>
       <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>uap-java</artifactId>
+          <groupId>com.github.ua-parser</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.keycloak</groupId>
@@ -71,16 +77,12 @@
       <scope>provided</scope>
       <exclusions>
         <exclusion>
-          <artifactId>javax.mail-api</artifactId>
-          <groupId>javax.mail</groupId>
+          <artifactId>jakarta.mail</artifactId>
+          <groupId>com.sun.mail</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>javax.json</artifactId>
+          <artifactId>jakarta.json</artifactId>
           <groupId>org.glassfish</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>jboss-servlet-api_4.0_spec</artifactId>
-          <groupId>org.jboss.spec.javax.servlet</groupId>
         </exclusion>
         <exclusion>
           <artifactId>twitter4j-core</artifactId>
@@ -91,7 +93,7 @@
           <groupId>org.jboss.spec.javax.ws.rs</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>jboss-transaction-api_1.2_spec</artifactId>
+          <artifactId>jboss-transaction-api_1.3_spec</artifactId>
           <groupId>org.jboss.spec.javax.transaction</groupId>
         </exclusion>
         <exclusion>
@@ -103,6 +105,10 @@
           <groupId>com.googlecode.owasp-java-html-sanitizer</groupId>
         </exclusion>
         <exclusion>
+          <artifactId>jackson-datatype-jdk8</artifactId>
+          <groupId>com.fasterxml.jackson.datatype</groupId>
+        </exclusion>
+        <exclusion>
           <artifactId>javase</artifactId>
           <groupId>com.google.zxing</groupId>
         </exclusion>
@@ -111,12 +117,20 @@
           <groupId>com.openshift</groupId>
         </exclusion>
         <exclusion>
+          <artifactId>webauthn4j-core</artifactId>
+          <groupId>com.webauthn4j</groupId>
+        </exclusion>
+        <exclusion>
           <artifactId>bcprov-jdk15on</artifactId>
           <groupId>org.bouncycastle</groupId>
         </exclusion>
         <exclusion>
           <artifactId>bcpkix-jdk15on</artifactId>
           <groupId>org.bouncycastle</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>keycloak-common</artifactId>
+          <groupId>org.keycloak</groupId>
         </exclusion>
       </exclusions>
     </dependency>

@@ -115,4 +115,29 @@ public class KeycloakSmsAuthenticatorCredentialProvider implements CredentialPro
             user.getCachedWith().put(CACHE_KEY, creds.get(0));
         }
     }
+
+    @Override
+    public String getType() {
+        return null;
+    }
+
+    @Override
+    public CredentialModel createCredential(RealmModel realm, UserModel user, CredentialModel credentialModel) {
+        return null;
+    }
+
+    @Override
+    public boolean deleteCredential(RealmModel realm, UserModel user, String credentialId) {
+        return false;
+    }
+
+    @Override
+    public CredentialModel getCredentialFromModel(CredentialModel model) {
+        return null;
+    }
+
+    @Override
+    public CredentialTypeMetadata getCredentialTypeMetadata(CredentialTypeMetadataContext metadataContext) {
+        return null;
+    }
 }
