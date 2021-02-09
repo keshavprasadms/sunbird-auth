@@ -90,7 +90,7 @@ public class PhonePasswordForm extends AbstractPhoneFormAuthenticator implements
 
         if (formData.size() > 0) forms.setFormData(formData);
 
-        return forms.createLogin();
+        return forms.createLoginUsernamePassword();
     }
 
 

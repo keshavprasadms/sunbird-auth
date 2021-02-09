@@ -29,7 +29,7 @@ public class ResetCredentialChooseUserAuthenticatorFactory
 
   protected static final AuthenticationExecutionModel.Requirement[] REQUIREMENT_CHOICES =
       {AuthenticationExecutionModel.Requirement.REQUIRED,
-          AuthenticationExecutionModel.Requirement.OPTIONAL,
+          AuthenticationExecutionModel.Requirement.ALTERNATIVE,
           AuthenticationExecutionModel.Requirement.DISABLED};
 
   @Override
